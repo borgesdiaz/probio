@@ -27,6 +27,7 @@
         
         <!-- App JS -->
         
+        <script src="{{URL::asset('js/global.js')}}"></script>
         <script src="{{URL::asset('js/enter_block.js')}}"></script>
         
         <!-- App Styles -->
@@ -49,11 +50,27 @@
                             <button type="button" class="btn btn-primary" id="enter-btn">Enter</button>
                         </div>
                     </form>
+                    <div id="invalid-person-id-alert" class="alert alert-danger hide">
+                        Please enter a valid Torre Person ID
+                    </div>
                 </div>
             </div>
             
             <div id="profile-block" class="text-center hide">
-                <h5>ProBio Profile</h5> 
+                <div id="headline">
+                    <img src="#" id="picture">
+                    <p>
+                        Hello, my name is <span id="name"></span>
+                    </p>
+                    <p id="professional-headline"></p>
+                    <h5 id="total-recommendations"></h5>
+                    <button type="button" class="btn btn-primary">Recommend</button>
+                    <p>(Without recommendation letters)</p>
+                </div>
+                
+                <div id="interests">
+                    
+                </div>
             </div>
             
             <div id="loader-block" class="text-center hide">
