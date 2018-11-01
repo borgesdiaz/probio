@@ -61,7 +61,7 @@ class ReadProBioJob
             'publications' => $publications,
             'people' => $people,
             'bios' => $bios,
-            'interests' => $interests
+            'interests' => ['running', 'biking']//$interests
         ];
         
         return $response;

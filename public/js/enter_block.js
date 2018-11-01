@@ -10,6 +10,8 @@ $(document).ready(function() {
     var picture = $('#picture');
     var professionalHeadline = $('#professional-headline');
     var totalRecommendations = $('#total-recommendations');
+    var location = $('#location');
+    var longBio = $('#long-bio');
     
     function showLoaderBlock () {
         hide(enterBlock);
@@ -48,7 +50,8 @@ $(document).ready(function() {
         var publications = torreBio.publications;
         var people = torreBio.people;
         var bios = torreBio.bios;
-        var interests = torreBio.interests;
+        var opportunities = bios.opportunities;
+        var aspirations = bios.aspirations;
         
         //Display Headline
         picture.attr('src', people.picture);
@@ -57,8 +60,50 @@ $(document).ready(function() {
         totalRecommendations.html(recommendationsCount);
         
         //Display Interests
+        var interestsPrefix = $('<span>Interested in </span>');
+        interestsPrefix.appendTo('#interests');
+        for (var i = 0; i < opportunities.length; i++) {
+            var opportunityName = opportunities[i].name;
+            if ((i + 1) === opportunities.length) {
+                var text = 'and ' + opportunityName + '.';
+            } else {
+                var text = opportunityName + ', ';
+            }
+            
+            var interest = $('<span>' + text + '</span>');
+            interest.appendTo('#interests');
+        }
+        
+        //Display Location
+        location.html(people.location);
+        
+        //Display Links
+        for (var i = 0; i < people.links.length; i++) {
+            var linkData = people.links[i];
+            var link = $('<a href=' + linkData.address + '> ' + linkData.name + ' </span>');
+            link.appendTo('#links');
+        }
+        
+        //Display Long Bio
+        
+        longBio.html(people.summaryOfBio);
         
         
+        //Display Aspirations
+        for (var i = 0; i < aspirations.length; i++) {
+            var aspirationName = aspirations[i].name;
+            var aspiration = $('<p>' + aspirationName + '</p>');
+            aspiration.appendTo('#aspirations');
+        }
+        
+        var aspirationPicture = $('<img src=' + people.picture + '>');
+        aspirationPicture.appendTo('#aspirations');
+        
+        //Display Recommendations
+        
+        
+        
+        //Display Reputation Weight
         
         showProfileBlock();
     };
@@ -70,7 +115,7 @@ $(document).ready(function() {
     
     function getTorreBio() {
         var personId = personIdInput.val();
-        fetch('http://127.0.0.8/api/probio?torre_person_id=' + personId)
+        fetch('http://68.183.113.4/api/probio?torre_person_id=' + personId)
             .then((response) => {
                 return response.json();
             }).then((data) => {
