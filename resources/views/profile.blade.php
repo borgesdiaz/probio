@@ -98,8 +98,10 @@
                 </div>
                 
                 <div id="strengths">
-                    <a href="#">VIEW ALL STRENGTHS/SKILLS <span id="strength-count"></span></a>
+                    
                 </div>
+                
+                <a href="#">VIEW ALL STRENGTHS/SKILLS <span id="strength-count"></span></a>
             </div>
             
             <div id="loader-block" class="text-center hide">
