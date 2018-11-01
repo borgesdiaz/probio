@@ -87,16 +87,16 @@ $(document).ready(function() {
         var projects = bios.projects;
         var education = torreBio.education;
         var publications = bios.publications;
-        var people = bios.person;
+        var person = bios.person;
         
         var opportunities = bios.opportunities;
         var aspirations = bios.aspirations;
         var strengths = bios.strengths;
         
         //Display Headline
-        picture.attr('src', people.picture);
-        name.html(people.name);
-        professionalHeadline.html(people.professionalHeadline);
+        picture.attr('src', person.picture);
+        name.html(person.name);
+        professionalHeadline.html(person.professionalHeadline);
         totalRecommendations.html(recommendationsCount);
 
         //Display Interests
@@ -115,18 +115,20 @@ $(document).ready(function() {
         }
 
         //Display Location
-        location.html(people.location);
+        location.html(person.location);
         
         //Display Links
-        for (var i = 0; i < people.links.length; i++) {
-            var linkData = people.links[i];
-            var link = $('<a href=' + linkData.address + '> ' + linkData.name + ' </span>');
+        for (var i = 0; i < person.links.length; i++) {
+            var linkData = person.links[i];
+            var link = $('<a href=' + linkData.address + '> ' + 
+                         "<li class='fab fa-" + linkData.name + "'" + "></i>"  
+                        + ' </span>');
             link.appendTo('#links');
         }
 
         //Display Long Bio
         
-        longBio.html(people.summaryOfBio);
+        longBio.html(person.summaryOfBio);
         
         
         //Display Aspirations
@@ -136,7 +138,7 @@ $(document).ready(function() {
             aspiration.appendTo('#aspirations');
         }
 
-        var aspirationPicture = $('<img src=' + people.picture + '>');
+        var aspirationPicture = $('<img src=' + person.picture + '>');
         aspirationPicture.appendTo('#aspirations');
 
         
@@ -146,7 +148,7 @@ $(document).ready(function() {
         
         //Display Reputation Weight
         
-       weight.html(people.weight);
+       weight.html(person.weight);
        console.log('8');
        //Display Skills
        
