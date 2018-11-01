@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group(['namespace' => 'API'], function() {
+    Route::get('/probio', 'ProBioController@index');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

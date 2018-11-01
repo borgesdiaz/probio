@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Page'], function() {
+    Route::get('/', 'ProfilePageController@index');
 });
