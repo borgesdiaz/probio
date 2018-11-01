@@ -41,6 +41,29 @@ $(document).ready(function() {
         hide(invalidPersonIdAlert);
     };
     
+    function responseError (data) {
+        showInvalidPersonIdAlert();
+        showEnterBlock();
+    };
+    
+    function getTorreBio() {
+        var personId = personIdInput.val();
+        fetch('http://68.183.113.4/api/probio?torre_person_id=' + personId)
+            .then((response) => {
+                return response.json();
+            }).then((data) => {
+                displayTorreBio(data);
+            }).catch((error) => {
+                responseError(error);
+            });
+    };
+    
+    enterBtn.click(function() {
+        hideInvalidPersonIdAlert();
+        showLoaderBlock();
+        getTorreBio();
+    });
+    
     function displayTorreBio (data) {
         var torreBio = data.data;
         var bios = torreBio.bios;
@@ -133,51 +156,4 @@ $(document).ready(function() {
         
         showProfileBlock();
     };
-    
-    function responseError (data) {
-        showInvalidPersonIdAlert();
-        showEnterBlock();
-    };
-    
-    function getTorreBio() {
-        var personId = personIdInput.val();
-        fetch('http://68.183.113.4/api/probio?torre_person_id=' + personId)
-            .then((response) => {
-                return response.json();
-            }).then((data) => {
-                displayTorreBio(data);
-            }).catch((error) => {
-                responseError(error);
-            });
-    };
-    
-    enterBtn.click(function() {
-        hideInvalidPersonIdAlert();
-        showLoaderBlock();
-        getTorreBio();
-    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
