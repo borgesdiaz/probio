@@ -20,21 +20,18 @@
         
         <!-- LinkedIn Javascript SDK Auth -->
         
-        <script src="{{URL::asset('js/linkedin_auth.js')}}"></script>
         <script type="text/javascript" src="//platform.linkedin.com/in.js">
             api_key: 77u2qpy0nlqwra
-            onLoad: onloadSuccess
         </script>
         
         <!-- App JS -->
         
         <script src="{{URL::asset('js/global.js')}}"></script>
-        <script src="{{URL::asset('js/enter_block.js')}}"></script>
+        <script src="{{URL::asset('js/profile.js')}}"></script>
         
         <!-- App Styles -->
         
-        <link href="{{URL::asset('css/global.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('css/enter_block.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/profile.css')}}" rel="stylesheet">
 
     </head>
     <body>
@@ -57,9 +54,14 @@
                 </div>
             </div>
             
-            <div id="profile-block" class="text-center hide">
-                <div id="headline">
+            <div id="profile-block" class="hide">
+                <div id="headline" class="text-center">
                     <img src="#" id="picture">
+                    <div>
+                        <button type="button" class="btn btn-linkedin">
+                            <i class="fab fa-linkedin"></i> Merge with LinkedIn Profile
+                        </button>
+                    </div>
                     <p>
                         Hello, my name is <span id="name"></span>
                     </p>
@@ -69,13 +71,13 @@
                     <p>(Without recommendation letters)</p>
                 </div>
                 
-                <div id="interests">
+                <div id="interests" class="text-center">
                     
                 </div>
                 
-                <p id="location"></p>
+                <p id="location" class="text-center"></p>
                 
-                <div id="links">
+                <div id="links" class="text-center">
                     
                 </div>
                 
@@ -101,7 +103,42 @@
                     
                 </div>
                 
-                <a href="#">VIEW ALL STRENGTHS/SKILLS <span id="strength-count"></span></a>
+                <a href="#">VIEW ALL STRENGTHS/SKILLS (<span id="strength-count"></span>)</a>
+                
+                <h5>Achievements/awards</h5>
+                <div id="achievements">
+                    
+                </div>
+                
+                <a href="#">VIEW ALL ACHIEVEMENTS/AWARDS (<span id="achievement-count"></span>)</a>
+                
+                <h5>Jobs</h5>
+                <div id="jobs">
+                    
+                </div>
+                
+                <a href="#">VIEW ALL JOBS(<span id="job-count"></span>)</a>
+                
+                <h5>Projects</h5>
+                <div id="projects">
+                    
+                </div>
+                
+                <a href="#">VIEW ALL PROJECTS(<span id="project-count"></span>)</a>
+                
+                <h5>Education</h5>
+                <div id="education">
+                    
+                </div>
+                
+                <a href="#">VIEW ALL EDUCATION(<span id="education-count"></span>)</a>
+                
+                <h5>Publications</h5>
+                <div id="publications">
+                    
+                </div>
+                
+                <a href="#">VIEW ALL PUBLICATIONS(<span id="publication-count"></span>)</a>
             </div>
             
             <div id="loader-block" class="text-center hide">
@@ -111,22 +148,3 @@
         </div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

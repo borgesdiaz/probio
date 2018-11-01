@@ -20,7 +20,8 @@ class ProBioController extends Controller
     public function index(Request $request) {
         try {
             $torrePersonId = $request->input('torre_person_id');
-            $proBio = $this->dispatch(new ReadProBioJob($torrePersonId));
+            $linkedin_access_token = $request->input('linkedin_access_token');
+            $proBio = $this->dispatch(new ReadProBioJob($torrePersonId, $linkedin_access_token));
             return Response::json([
                 'data' => $proBio
             ]);

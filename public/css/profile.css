@@ -14,3 +14,19 @@
 #enter-btn {
     width : 100%;
 }
+
+
+.btn-linkedin {
+    margin : 10px auto;
+    background-color : #007BB6 !important;
+    color : white;
+}
+
+
+.hide {
+    display : none;
+}
+
+.blue-text {
+    color : #0069d9;
+}
