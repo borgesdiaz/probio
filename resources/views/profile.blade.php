@@ -90,6 +90,16 @@
                 <div id="recommendations">
                     
                 </div>
+                
+                <div id="reputation">
+                    <h1 id="weight"></h1>
+                    <p>Reputation Weight</p>
+                    <a href="#">WHAT IS THIS?</a>
+                </div>
+                
+                <div id="strengths">
+                    <a href="#">VIEW ALL STRENGTHS/SKILLS <span id="strength-count"></span></a>
+                </div>
             </div>
             
             <div id="loader-block" class="text-center hide">

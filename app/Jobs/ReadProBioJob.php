@@ -40,28 +40,16 @@ class ReadProBioJob
         
         $torreClient = new Torre;
 
-        $achievements = $torreClient->achievements($this->torrePersonId);
         $recommendations = $torreClient->recommendations($this->torrePersonId);
-        $jobs = $torreClient->jobs($this->torrePersonId);
-        $projects = $torreClient->projects($this->torrePersonId);
         $education = $torreClient->education($this->torrePersonId);
-        $publications = $torreClient->publications($this->torrePersonId);
-        $people = $torreClient->people($this->torrePersonId);
         $bios = $torreClient->bios($this->torrePersonId);
-        $interests = []; //$torreClient->interested($this->torrePersonId);
 
         
         $response = [
-            'achievements' => $achievements,
             'recommendations' => $recommendations,
             'recommendation_count' => count($recommendations),
-            'jobs' => $jobs,
-            'projects' => $projects,
             'education' => $education,
-            'publications' => $publications,
-            'people' => $people,
-            'bios' => $bios,
-            'interests' => ['running', 'biking']//$interests
+            'bios' => $bios
         ];
         
         return $response;

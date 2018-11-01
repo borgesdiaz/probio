@@ -12,6 +12,8 @@ $(document).ready(function() {
     var totalRecommendations = $('#total-recommendations');
     var location = $('#location');
     var longBio = $('#long-bio');
+    var weight = $('#weight');
+    var strengthCount = $('#strength-count');
     
     function showLoaderBlock () {
         hide(enterBlock);
@@ -41,17 +43,19 @@ $(document).ready(function() {
     
     function displayTorreBio (data) {
         var torreBio = data.data;
-        var achievements = torreBio.achievements;
+        var bios = torreBio.bios;
+        var achievements = bios.achievements;
         var recommendations = torreBio.recommendations;
         var recommendationsCount = torreBio.recommendations_count;
-        var jobs = torreBio.jobs;
-        var projects = torreBio.projects;
+        var jobs = bios.jobs;
+        var projects = bios.projects;
         var education = torreBio.education;
-        var publications = torreBio.publications;
-        var people = torreBio.people;
-        var bios = torreBio.bios;
+        var publications = bios.publications;
+        var people = bios.person;
+        
         var opportunities = bios.opportunities;
         var aspirations = bios.aspirations;
+        var strengths = bios.strengths;
         
         //Display Headline
         picture.attr('src', people.picture);
@@ -101,9 +105,31 @@ $(document).ready(function() {
         
         //Display Recommendations
         
-        
+        //@Todo
         
         //Display Reputation Weight
+        
+       weight.html(people.weight);
+       
+       //Display Skills
+       
+       for (var i = 0; i < strengths.length; i++) {
+            var strengthName = strengths[i].name;
+            var strength = $('<span> ' + strengthName + ' </span>');
+            strength.appendTo('#strengths');
+        }
+        
+        strengthCount.html(strengths.length);
+        
+        //Display Achievements
+        
+        for (var i = 0; i < achievements.length; i++) {
+            var achievement = achievements[i];
+            var achievementName = achievement.name;
+            var when = achievement.fromMonth + ' ' + achievement.fromYear;
+            var strength = $('<p> ' + achievementName + ' </p>');
+            strength.appendTo('#strengths');
+        }
         
         showProfileBlock();
     };
