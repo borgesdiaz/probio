@@ -63,82 +63,82 @@
                         </button>
                     </div>
                     <p>
-                        Hello, my name is <span id="name"></span>
+                        Hello, my name is <span id="name" class="profile-data"></span>
                     </p>
-                    <p id="professional-headline"></p>
-                    <h5 id="total-recommendations"></h5>
+                    <p id="professional-headline" class="profile-data"></p>
+                    <h5 id="total-recommendations" class="profile-data"></h5>
                     <button type="button" class="btn btn-primary">Recommend</button>
                     <p>(Without recommendation letters)</p>
                 </div>
                 
-                <div id="interests" class="text-center">
+                <div id="interests" class="text-center profile-data">
                     
                 </div>
                 
-                <p id="location" class="text-center"></p>
+                <p id="location" class="text-center profile-data"></p>
                 
-                <div id="links" class="text-center">
+                <div id="links" class="text-center profile-data">
                     
                 </div>
                 
-                <div id="long-bio">
+                <div id="long-bio" class="profile-data">
                     
                 </div>
                 
-                <div id="aspirations">
+                <div id="aspirations" class="profile-data">
                  
                 </div>
                 
-                <div id="recommendations">
+                <div id="recommendations" class="profile-data">
                     
                 </div>
                 
                 <div id="reputation">
-                    <h1 id="weight"></h1>
+                    <h1 id="weight" class="profile-data"></h1>
                     <p>Reputation Weight</p>
                     <a href="#">WHAT IS THIS?</a>
                 </div>
                 
-                <div id="strengths">
+                <div id="strengths" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL STRENGTHS/SKILLS (<span id="strength-count"></span>)</a>
+                <a href="#">VIEW ALL STRENGTHS/SKILLS (<span id="strength-count" class="profile-data"></span>)</a>
                 
                 <h5>Achievements/awards</h5>
-                <div id="achievements">
+                <div id="achievements" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL ACHIEVEMENTS/AWARDS (<span id="achievement-count"></span>)</a>
+                <a href="#">VIEW ALL ACHIEVEMENTS/AWARDS (<span id="achievement-count" class="profile-data"></span>)</a>
                 
                 <h5>Jobs</h5>
-                <div id="jobs">
+                <div id="jobs" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL JOBS(<span id="job-count"></span>)</a>
+                <a href="#">VIEW ALL JOBS(<span id="job-count" class="profile-data"></span>)</a>
                 
                 <h5>Projects</h5>
-                <div id="projects">
+                <div id="projects" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL PROJECTS(<span id="project-count"></span>)</a>
+                <a href="#">VIEW ALL PROJECTS(<span id="project-count" class="profile-data"></span>)</a>
                 
                 <h5>Education</h5>
-                <div id="education">
+                <div id="education" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL EDUCATION(<span id="education-count"></span>)</a>
+                <a href="#">VIEW ALL EDUCATION(<span id="education-count" class="profile-data"></span>)</a>
                 
                 <h5>Publications</h5>
-                <div id="publications">
+                <div id="publications" class="profile-data">
                     
                 </div>
                 
-                <a href="#">VIEW ALL PUBLICATIONS(<span id="publication-count"></span>)</a>
+                <a href="#">VIEW ALL PUBLICATIONS(<span id="publication-count" class="profile-data"></span>)</a>
             </div>
             
             <div id="loader-block" class="text-center hide">

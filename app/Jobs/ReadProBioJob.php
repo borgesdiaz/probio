@@ -32,23 +32,21 @@ class ReadProBioJob
      */
     public function handle()
     {
-        ob_start();
-        print_r($this->linkedinAccessToken);
-        $res = ob_get_clean();
-        file_put_contents('newfile.txt', $res);
-        
         if (!$this->torrePersonId) {
             throw new InvalidTorrePersonIdException;
         }
         
         $torreClient = new Torre;
-
         $recommendations = $torreClient->recommendations($this->torrePersonId);
         $education = $torreClient->education($this->torrePersonId);
         $bios = $torreClient->bios($this->torrePersonId);
         
         if ($this->linkedinAccessToken) {
-            
+            $linkedin = new \Happyr\LinkedIn\LinkedIn(Torre::CLIENT_ID, Torre::CLIENT_SECRET);  
+            $linkedin->setAccessToken($this->linkedinAccessToken);
+            if ($linkedin->isAuthenticated()) {
+                //Always false
+            }
         }
         
         $response = [

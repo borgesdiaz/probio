@@ -9,6 +9,8 @@ class Torre extends API
     const CONTENT_TYPE = 'application/json';
     const BIOS_URL = 'https://torre.bio/api/bios/';
     const API_URL = 'https://torre.bio/api/';
+    const CLIENT_ID = '77u2qpy0nlqwra';
+    const CLIENT_SECRET = 'dmlBaAJ10qeaMm1G';
 
     private $headers = [];
     

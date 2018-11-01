@@ -20,8 +20,10 @@ $(document).ready(function() {
     var educationCount = $('#education-count');
     var pubCount = $('#publication-count');
     var linkedInBtn = $('.btn-linkedin');
+    var profileData = $('.profile-data');
     
     function showLoaderBlock () {
+        profileData.html('');
         hide(enterBlock);
         hide(profileBlock);
         show(loaderBlock);
@@ -96,7 +98,7 @@ $(document).ready(function() {
         name.html(people.name);
         professionalHeadline.html(people.professionalHeadline);
         totalRecommendations.html(recommendationsCount);
-        
+
         //Display Interests
         var interestsPrefix = $('<span>Interested in </span>');
         interestsPrefix.appendTo('#interests');
@@ -111,7 +113,7 @@ $(document).ready(function() {
             var interest = $('<span>' + text + '</span>');
             interest.appendTo('#interests');
         }
-        
+
         //Display Location
         location.html(people.location);
         
@@ -121,7 +123,7 @@ $(document).ready(function() {
             var link = $('<a href=' + linkData.address + '> ' + linkData.name + ' </span>');
             link.appendTo('#links');
         }
-        
+
         //Display Long Bio
         
         longBio.html(people.summaryOfBio);
@@ -133,9 +135,10 @@ $(document).ready(function() {
             var aspiration = $('<p>' + aspirationName + '</p>');
             aspiration.appendTo('#aspirations');
         }
-        
+
         var aspirationPicture = $('<img src=' + people.picture + '>');
         aspirationPicture.appendTo('#aspirations');
+
         
         //Display Recommendations
         
@@ -144,20 +147,28 @@ $(document).ready(function() {
         //Display Reputation Weight
         
        weight.html(people.weight);
-       
+       console.log('8');
        //Display Skills
        
        for (var i = 0; i < 6; i++) {
+           if (i === strengths.length) {
+               break;
+           }
+           
             var strengthName = strengths[i].name;
             var strength = $('<span> ' + strengthName + ' </span>');
             strength.appendTo('#strengths');
         }
-        
+
         strengthCount.html(strengths.length);
         
         //Display Achievements
         
         for (var i = 0; i < 5; i++) {
+            if (i === achievements.length) {
+                break;
+            }
+            
             var achievementHeadline = $('<div>');
             var achievementFooter = $('<div>');
             var achievementContainer = $('<div>');
@@ -189,11 +200,15 @@ $(document).ready(function() {
             achievementContainer.append(achievementFooter);
             achievementContainer.appendTo('#achievements');
         }
-        
+
         achievementCount.html(achievements.length);
         
         //Display Jobs
         for (var i = 0; i < 5; i++) {
+            if (i === jobs.length) {
+                break;
+            }
+            
             var jobHeadline = $('<div>');
             var jobFooter = $('<div>');
             var jobContainer = $('<div>');
@@ -222,11 +237,15 @@ $(document).ready(function() {
             jobContainer.append(jobFooter);
             jobContainer.appendTo('#jobs');
         }
-        
+
         jobCount.html(jobs.length);
         
         //Display Projects
         for (var i = 0; i < 5; i++) {
+            if (i === projects.length) {
+                break;
+            }
+            
             var projectHeadline = $('<div>');
             var projectFooter = $('<div>');
             var projectContainer = $('<div>');
@@ -255,13 +274,17 @@ $(document).ready(function() {
             projectContainer.append(jobFooter);
             projectContainer.appendTo('#projects');
         }
-        
+
         projectCount.html(projects.length);
         
         educationCount.html(education.length);
         
         //Display Publications
         for (var i = 0; i < 5; i++) {
+            if (i === publications.length) {
+                break;
+            }
+            
             var pubHeadline = $('<div>');
             var pubFooter = $('<div>');
             var pubContainer = $('<div>');
@@ -291,7 +314,7 @@ $(document).ready(function() {
             pubContainer.append(pubFooter);
             pubContainer.appendTo('#publications');
         }
-        
+
         pubCount.html(publications.length);
         
         showProfileBlock();
@@ -304,38 +327,12 @@ $(document).ready(function() {
     function authSuccess(data) {
         IN.API.Raw("/people/~")
         .result(function(data) {
-            var url = data.siteStandardProfileRequest.url;
-            const urlParams = new URLSearchParams(url);
-            const authToken = urlParams.get('authToken');
+            var token = IN.ENV.auth.oauth_token;
             hideInvalidPersonIdAlert();
             showLoaderBlock();
-            getTorreBio(authToken);
+            getTorreBio(token);
         }).error(function(error) {
             
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
