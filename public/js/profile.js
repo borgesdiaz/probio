@@ -329,7 +329,6 @@ $(document).ready(function() {
     function authSuccess(data) {
         IN.API.Raw("/people/~")
         .result(function(data) {
-            console.log(IN);
             var token = IN.ENV.auth.oauth_token;
             hideInvalidPersonIdAlert();
             showLoaderBlock();
