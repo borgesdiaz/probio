@@ -6,4 +6,3 @@ function show(el) {
 function hide(el) {
     el.addClass('hide');
 };
-

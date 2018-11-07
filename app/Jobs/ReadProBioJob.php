@@ -6,6 +6,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Exceptions\InvalidTorrePersonIdException;
 use App\Http\Clients\Torre;
+use App\Http\Clients\LinkedIn;
 
 class ReadProBioJob
 {
@@ -42,11 +43,8 @@ class ReadProBioJob
         $bios = $torreClient->bios($this->torrePersonId);
         
         if ($this->linkedinAccessToken) {
-            $linkedin = new \Happyr\LinkedIn\LinkedIn(Torre::CLIENT_ID, Torre::CLIENT_SECRET);  
-            $linkedin->setAccessToken($this->linkedinAccessToken);
-            if ($linkedin->isAuthenticated()) {
-                //Always false
-            }
+            //$linkedin = new LinkedIn;
+            //$result = $linkedin->accessToken($this->linkedinAccessToken);
         }
         
         $response = [

@@ -56,7 +56,7 @@ $(document).ready(function() {
     
     function getTorreBio(authToken) {
         var personId = personIdInput.val();
-        var url = 'http://68.183.113.4/api/probio?torre_person_id=' + personId;
+        var url = 'api/probio?torre_person_id=' + personId;
         if (authToken) {
             url += '&linkedin_access_token=' + authToken;
         }
@@ -329,6 +329,7 @@ $(document).ready(function() {
     function authSuccess(data) {
         IN.API.Raw("/people/~")
         .result(function(data) {
+            console.log(IN);
             var token = IN.ENV.auth.oauth_token;
             hideInvalidPersonIdAlert();
             showLoaderBlock();
