@@ -43,6 +43,7 @@ class ReadProBioJob
         $bios = $torreClient->bios($this->torrePersonId);
         
         if ($this->linkedinAccessToken) {
+            //Todo: Fetch the real access token from LinkedIn
             //$linkedin = new LinkedIn;
             //$result = $linkedin->accessToken($this->linkedinAccessToken);
         }
